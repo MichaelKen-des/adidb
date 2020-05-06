@@ -82,14 +82,9 @@
         }
     }
 
-    let labels=[];
-    let value=[];
-
-  function GenerateData(){
+  function GenerateData(labels,value){
       let tx = db.transaction(['Notes'], 'readonly');
       let store = tx.objectStore('Notes');
-      labels.clear();
-      value.clear();
   // Создать запрос курсора
   let req = store.openCursor();
   req.onsuccess = (event) => {

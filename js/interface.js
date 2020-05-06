@@ -10,7 +10,9 @@ class myinterface{
 
         document.getElementById('display').addEventListener('click', (x)=>{
             event.preventDefault();
-            GenerateData();
+            let labels=[];
+            let value=[];
+            GenerateData(lebels,value);
             let start=50;let color=[];
             for(let i=0;i<labels.length;i++){
                 color.push(`rgb(${start},${start},${start})`);
