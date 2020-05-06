@@ -12,7 +12,7 @@ class myinterface{
             event.preventDefault();
             let labels=[];
             let value=[];
-            GenerateData(lebels,value);
+            GenerateData(labels,value);
             let start=50;let color=[];
             for(let i=0;i<labels.length;i++){
                 color.push(`rgb(${start},${start},${start})`);
