@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOA</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <main>
+        <form class="form-container" action="">
+            <legend>Enter Note</legend>
+            <div id ="rows" class="rows">
+            <div class="form-row">
+                <label for="name">Name</label>
+                <input id="name"  name="name" type="text">
+            </div>
+            <div class="form-row">
+                <label for="last-name">Last name</label>
+                <input id="last-name"  name="last-name" type="text">
+            </div>
+            <div class="form-row">
+                <label for="age">Age</label>
+                <input  id="age" name="age" type="number" value="0" min="0" max="120" >
+            </div>
+            <div class="form-row">
+                <label for="hobb">Hobbi</label>
+                <input name="hobb" type="text">
+            </div>
+        </div>
+    </div>
+        <button id="add-hobb" class="button">
+            Add Hobby
+        </button>
+            <button id="add-note" class="button">
+                Add Note
+            </button>
+
+            <div class="line"></div>
+
+            <button id="display" class="button">
+                Display graphic
+            </button>
+        </form>
+        <canvas  id="analit" class="invis">
+
+        </canvas>
+    </main>
+
+    <script src="./js/Note.js"></script>
+    <script src="./js/indexDB.js"></script>
+    <script src="./js/interface.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</body>
+</html>
