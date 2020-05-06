@@ -82,7 +82,16 @@
         }
     }
 
-  function GenerateData(labels,value){
+    function colorgenerator(){
+      let r,g,b;
+      r=Math.floor(Math.random()*(256));
+      g=Math.floor(Math.random()*(256));
+      b=Math.floor(Math.random()*(256));
+      return 'rgb('+r+','+g+','+b+')';
+  };
+
+
+  function GenerateData(data){
       let tx = db.transaction(['Notes'], 'readonly');
       let store = tx.objectStore('Notes');
   // Создать запрос курсора
@@ -90,11 +99,13 @@
   req.onsuccess = (event) => {
     // Результатом req.onsuccess в запросах openCursor является
      // IDBCursor
+
     let cursor = event.target.result;
     if (cursor != null) {
       // Если курсор не нулевой, мы получили элемент.
-      labels.push(cursor.key);
-      value.push(cursor.value.length);
+      data.labels.push(cursor.key);
+      data.value.push(cursor.value.length);
+      data.color.push(colorgenerator());
       cursor.continue();
     }
   }

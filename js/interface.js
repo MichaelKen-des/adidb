@@ -1,5 +1,8 @@
 
 class myinterface{
+
+    done=0;;
+
     constructor(){
         document.getElementById('add-hobb').addEventListener('click', ()=>{
             event.preventDefault();
@@ -10,21 +13,20 @@ class myinterface{
 
         document.getElementById('display').addEventListener('click', (x)=>{
             event.preventDefault();
-            let labels=[];
-            let value=[];
-            GenerateData(labels,value);
-            let start=100;let color=[];
-            for(let i=0;i<labels.length;i++){
-                color.push(`rgb(${start},${start-40},${start-10})`);
-                start+=50;
+            if (!this.done){
+            let data={
+                labels:[],
+                value:[],
+                color:[],
+              }
+           GenerateData(data);
+           this.display(data);
+           this.done=1;
             }
-            this.display(labels,value,color);
-            document.getElementById('analit').classList.remove('invis');
         } );
     }
 
     AddHobbi(){
-       
         const newhob=document.createElement('div');
         newhob.classList.add('form-row');
          newhob.innerHTML=
@@ -36,25 +38,26 @@ class myinterface{
         document.getElementById("rows").append(newhob);
     }
 
+    display(data){
+        let ctx = document.getElementById('analit').getContext('2d');
 
-    display(labels,value,color){
-    let ctx = document.getElementById('analit').getContext('2d');
-
-    let myBarChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels:labels,
-        datasets: [{
-            label:"Hobby",
-            backgroundColor:color,
-            borderColor: 'rgb(100,130,132)',
-            data:value,
-        }]
-    },
-    //options: options
-});
+        let myBarChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels:data.labels,
+            datasets: [{
+                label:"Hobby",
+                backgroundColor:data.color,
+                borderColor: 'rgb(100,130,132)',
+                data:data.value,
+            }]
+        },
+        //options: options
+    });
+    document.getElementById('analit').classList.remove('invis');
     }
 
 }
 
 let forem=new myinterface;
+
