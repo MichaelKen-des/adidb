@@ -13,10 +13,10 @@ class myinterface{
             let labels=[];
             let value=[];
             GenerateData(labels,value);
-            let start=50;let color=[];
+            let start=100;let color=[];
             for(let i=0;i<labels.length;i++){
-                color.push(`rgb(${start},${start},${start})`);
-                start+=10;
+                color.push(`rgb(${start},${start-40},${start-10})`);
+                start+=50;
             }
             this.display(labels,value,color);
             document.getElementById('analit').classList.remove('invis');
