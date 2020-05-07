@@ -23,7 +23,8 @@ class myinterface{
            this.display(data);
            this.done=1;
             }
-        } );
+        } 
+        );
     }
 
     AddHobbi(){
@@ -39,6 +40,7 @@ class myinterface{
     }
 
     display(data){
+        console.log("ready");
         let ctx = document.getElementById('analit').getContext('2d');
 
         let myBarChart = new Chart(ctx, {

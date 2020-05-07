@@ -109,6 +109,7 @@
       cursor.continue();
     }
   }
+  
   req.onerror = (event) => {
     alert('error in cursor request ' + event.target.errorCode);
   }
