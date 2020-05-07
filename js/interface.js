@@ -41,6 +41,7 @@ class myinterface{
 
     display(data){
         console.log("ready");
+        document.getElementById('analit').classList.remove('invis');
         let ctx = document.getElementById('analit').getContext('2d');
 
         let myBarChart = new Chart(ctx, {
@@ -56,7 +57,6 @@ class myinterface{
         },
         //options: options
     });
-    document.getElementById('analit').classList.remove('invis');
     }
 
 }
